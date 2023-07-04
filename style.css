@@ -1,0 +1,199 @@
+body {
+  display: flex; /* Specifies a flex container */
+  justify-content: center; /* Aligns flex items along the main axis (horizontally) */
+  align-items: center; /* Aligns flex items along the cross axis (vertically) */
+  height: 100vh; /* Sets the height of the body to 100% of the viewport height */
+  margin: 0; /* Removes margin around the body */
+  font-family: 'Open Sans', sans-serif; /* Sets the font family for the body */
+  background: #222; /* Sets the background color */
+  font-size: 120%; /* Sets the font size to 120% of the default size */
+  background-size: cover; /* Scales the background image to cover the entire container */
+  background-position: center; /* Positions the background image at the center */
+}
+
+.container {
+  display: flex; /* Specifies a flex container */
+  justify-content: space-between; /* Distributes flex items evenly along the main axis */
+  align-items: center; /* Aligns flex items along the cross axis */
+  max-width: 1200px; /* Sets the maximum width of the container */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.6); /* Sets the background color with transparency */
+  color: white; /* Sets the text color */
+  padding: 2em; /* Sets padding around the content */
+  border-radius: 30px; /* Rounds the corners of the card */
+  max-width: 420px; /* Sets the maximum width of the card */
+  margin: 1em; /* Adds margin around the card */
+  background-size: contain; /* Scales the background image to fit within the container */
+  background-position: center; /* Positions the background image at the center */
+}
+
+.card.weather-card {
+  order: 1; /* Specifies the order of the flex item */
+  min-width: 250px; /* Sets the minimum width of the card */
+}
+
+.search {
+  display: flex; /* Specifies a flex container */
+  align-items: center; /* Aligns flex items along the cross axis */
+  justify-content: center; /* Aligns flex items along the main axis */
+}
+
+button {
+  margin: 0.5em; /* Adds margin around the button */
+  border-radius: 50%; /* Rounds the corners of the button */
+  border: none; /* Removes border */
+  height: 44px; /* Sets the height of the button */
+  width: 44px; /* Sets the width of the button */
+  outline: none; /* Removes outline when button is focused */
+  background: #7c7c7c2b; /* Sets the background color of the button */
+  color: white; /* Sets the text color */
+  cursor: pointer; /* Sets the cursor to a pointer */
+  transition: 0.2s ease-in-out; /* Adds a smooth transition effect */
+}
+
+input.search-bar {
+  border: none; /* Removes border */
+  outline: none; /* Removes outline when input is focused */
+  padding: 0.4em 1em; /* Sets padding around the input */
+  border-radius: 24px; /* Rounds the corners of the input */
+  background: #7c7c7c4c; /* Sets the background color of the input */
+  color: white; /* Sets the text color */
+  font-family: inherit; /* Inherits the font family from the parent element */
+  font-size: 105%; /* Sets the font size to 105% of the default size */
+  width: calc(100% - 100px); /* Sets the width of the input box */
+}
+
+input#chat-search-bar.search-bar {
+  /* CSS styles for the search bar */
+  border: none; /* Removes border */
+  outline: none; /* Removes outline when input is focused */
+  padding: 0.4em 1em; /* Sets padding around the input */
+  border-radius: 24px; /* Rounds the corners of the input */
+  background: #7c7c7c4c; /* Sets the background color of the input */
+  color: white; /* Sets the text color */
+  font-family: inherit; /* Inherits the font family from the parent element */
+  font-size: 100%; /* Sets the font size to the default size */
+  width: calc(100% - 100px); /* Sets the width of the input box */
+}
+
+button:hover {
+  background: #7c7c7c6b; /* Sets the background color when hovering over the button */
+}
+
+h1.temp {
+  margin: 0; /* Removes margin around the heading */
+  margin-bottom: 0.4em; /* Adds margin at the bottom of the heading */
+}
+
+.flex {
+  display: flex; /* Specifies a flex container */
+  align-items: center; /* Aligns flex items along the cross axis */
+}
+
+.description {
+  text-transform: capitalize; /* Capitalizes the first letter of each word in the text */
+  margin-left: 8px; /* Adds margin to the left of the element */
+}
+
+.weather.loading {
+  visibility: hidden; /* Hides the element */
+  max-height: 20px; /* Sets the maximum height of the element */
+  position: relative; /* Positions the element relative to its normal position */
+}
+
+.weather.loading:after {
+  visibility: visible; /* Makes the element visible */
+  content: "Loading..."; /* Sets the content of the element */
+  color: white; /* Sets the text color */
+  position: absolute; /* Positions the element relative to its nearest positioned ancestor */
+  top: 0; /* Positions the element at the top */
+  left: 20px; /* Positions the element at the left */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* Applies a rotation transform to the element */
+  }
+}
+
+.loading-text {
+  display: inline-block; /* Displays the element as an inline block */
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Sets the border style */
+  border-radius: 50%; /* Rounds the corners of the element */
+  border-top: 4px solid #ffffff; /* Sets the top border style */
+  width: 24px; /* Sets the width of the element */
+  height: 24px; /* Sets the height of the element */
+  animation: spin 1s linear infinite; /* Applies a rotation animation to the element */
+  margin-right: 8px; /* Adds margin to the right of the element */
+}
+
+.card.chat-card {
+  order: 2; /* Specifies the order of the flex item */
+  max-width: 100%; /* Sets the maximum width of the card */
+  max-height: 318px; /* Sets the maximum height of the card */
+  overflow-y: auto; /* Adds a vertical scrollbar when content overflows */
+  align-items: center; /* Aligns flex items along the cross axis */
+}
+
+.question-input {
+  border: none; /* Removes border */
+  outline: none; /* Removes outline when input is focused */
+  padding: 0.4em 1em; /* Sets padding around the input */
+  border-radius: 24px; /* Rounds the corners of the input */
+  background: #7c7c7c4c; /* Sets the background color of the input */
+  color: white; /* Sets the text color */
+  font-family: inherit; /* Inherits the font family from the parent element */
+  font-size: 100%; /* Sets the font size to the default size */
+}
+
+.send-question {
+  margin: 0.5em; /* Adds margin around the button */
+  border-radius: 50%; /* Rounds the corners of the button */
+  border: none; /* Removes border */
+  height: 44px; /* Sets the height of the button */
+  width: 44px; /* Sets the width of the button */
+  outline: none; /* Removes outline when button is focused */
+  background: #7c7c7c2b; /* Sets the background color of the button */
+  color: white; /* Sets the text color */
+  cursor: pointer; /* Sets the cursor to a pointer */
+  transition: 0.2s ease-in-out; /* Adds a smooth transition effect */
+}
+
+.input-container {
+  display: flex; /* Specifies a flex container */
+  align-items: center; /* Aligns flex items along the cross axis */
+}
+
+input.search-bar::placeholder {
+  color: #ffffffa4; /* Changes the color of the placeholder text */
+}
+
+input#chat-search-bar.question-input::placeholder {
+  color: #ffffffa4; /* Changes the color of the placeholder text */
+}
+
+
+/* Media queries for mobile devices */
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    margin: 0.5em;
+    max-width: none;
+    width: 90%;
+    padding: 0.5em; /* Adjust the padding as needed */
+    border-radius: 10px; /* Adjust the border radius as needed */
+  }
+
+  .card.weather-card {
+    order: 1;
+    margin-top: 1em;
+  }
+}
