@@ -1,5 +1,3 @@
-# weather-travel-app
-
 Developed a web application that combines weather information with travel recommendations.
 
 •	Implemented search functionality to retrieve weather data for specific locations using the OpenWeatherMap API.  
