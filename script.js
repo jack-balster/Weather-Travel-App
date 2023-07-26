@@ -15,7 +15,7 @@ function sendMessageToChatGPT(location) {
     previousUserMessage.remove();
   }
 
-  // Set the prompt message for the user
+  // Set the prompt message for ChatGPT based on location
   const prompt = `Using up to 120 words, List 5 fun things to do in ${location}? Also make sure that there are two newlines after each fun thing to do`;
 
   // Create a new user message element and add it to the messages container
@@ -27,7 +27,7 @@ function sendMessageToChatGPT(location) {
   const apiKey = myOpenAIKey;
   const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
-  // Make a POST request to the API
+  // Make a POST request to the API defining ChatGPT settings
   return axios.post(apiUrl, {
     model: 'gpt-3.5-turbo',
     messages: [{ role: 'system', content: 'You are incredibly knowledgeable and very concise.' }, { role: 'user', content: prompt }],
@@ -40,7 +40,7 @@ function sendMessageToChatGPT(location) {
     },
   })
     .then((response) => {
-      // Create a new bot message element and add the response from ChatGPT to it
+      // Create new bot message element and add the response from ChatGPT to it
       const botMessage = document.createElement('div');
       botMessage.className = 'message bot';
       const botResponse = response.data.choices[0].message.content;
@@ -86,7 +86,7 @@ function handleChatConversation(prompt) {
   // Show loading text
   loadingText.style.display = 'block';
 
-  // Send the prompt to ChatGPT using an API call
+  // Send the prompt to ChatGPT using an API call (like before but for convo not weather)
   axios
     .post(apiUrl, {
       model: 'gpt-3.5-turbo',
@@ -117,7 +117,7 @@ function handleChatConversation(prompt) {
         return;
       }
 
-      // Extract user prompt from bot response
+      // Extract user prompt from response
       const userPrompt = response.data.choices[0].message.content;
 
       // Continue the conversation recursively
@@ -131,5 +131,5 @@ function handleChatConversation(prompt) {
     });
 }
 
-// Update the selector to use the new id
+// Update the selector to use the new input
 const chatSearchBar = document.getElementById('chat-search-bar');
