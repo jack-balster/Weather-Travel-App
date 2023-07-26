@@ -1,11 +1,11 @@
 var myOpenWeatherKey = config.openWeatherMapKey;
 var myUnsplashKey = config.unsplashKey;
 
-// Create an object named 'weather'
+// Create weather object
 let weather = {
   apiKey: myOpenWeatherKey,
 
-  // Method to fetch weather data for a given city
+  // Function to fetch weather data for a given city
   fetchWeather: function (city) {
     // Use fetch API to make a request to the OpenWeatherMap API
     fetch(
@@ -24,7 +24,7 @@ let weather = {
       .then((data) => this.displayWeather(data));
   },
 
-  // Method to display the weather data
+  // Function to display the weather data
   displayWeather: function (data) {
     // Extract relevant data from the response object
     const { name } = data;
@@ -44,7 +44,7 @@ let weather = {
       "Wind speed: " + speed + " km/h";
     document.querySelector(".weather").classList.remove("loading");
 
-    // Function to fetch an image from Unsplash
+    // Function to fetch an image from Unsplash based on name
     function fetchUnsplashImage() {
       fetch(
         "https://api.unsplash.com/photos/random?query=" + name + " city&fit=fill",
@@ -90,14 +90,14 @@ let weather = {
       fetchUnsplashImage();
     };
 
-    // Set the source of the image element to the local image
+    // Set source of the image element to the local image
     localImage.src = "app-photos/" + imageName;
 
     // Send location to chatgpt
     sendMessageToChatGPT(name);
   },
 
-  // Method to initiate the weather search
+  // Function to initiate the weather search
   search: function () {
     // Fetch weather data for the city entered in the search bar
     this.fetchWeather(document.querySelector(".search-bar").value);
@@ -106,5 +106,5 @@ let weather = {
   },
 };
 
-// Call the fetchWeather function with a default city (e.g., "Seattle") to initiate the weather retrieval
+// Call fetchWeather function to initiate the weather retrieval
 weather.fetchWeather("Seattle");
